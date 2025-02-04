@@ -1,0 +1,26 @@
+CREATE TABLE IF NOT EXISTS Contact (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    lastName TEXT NOT NULL,
+    phone TEXT NOT NULL,
+    email TEXT,
+    photo BLOB
+);
+
+insert:
+INSERT INTO Contact(name, lastName, phone, email, photo) VALUES ?;
+
+update:
+UPDATE Contact SET name = ?, lastName = ?, phone = ?, email = ?, photo = ? WHERE id = ?;
+
+selectAll:
+SELECT * FROM Contact;
+
+findById:
+SELECT * FROM Contact WHERE id = :id;
+
+delete:
+DELETE FROM Contact WHERE id = :id;
+
+search:
+SELECT * FROM Contact WHERE name LIKE ? OR lastName LIKE ? OR phone LIKE ? OR email LIKE ?;
